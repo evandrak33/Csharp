@@ -1,12 +1,9 @@
 ﻿using System.Text;
 
-namespace EurosToDollars
+namespace CurrencyConverter
 {
-    /// <summary>
-    /// Διαβάζει από το std ένα ακέραιο που αναπαριστά
-    /// το ποσό σε ευρώ. Και μετατρέπει από ευρώ σε δολλάρια,
-    /// με βάση μία ισοτιμία έστω 1 Εωρώ = 1.07 USD.
-    /// </summary>
+    //reads the input of the user
+    //the user gives amount in euros
     internal class Program
     {
         static void Main(string[] args)
@@ -21,10 +18,12 @@ namespace EurosToDollars
                 return;
             }
 
-            // Μετατροπή σε δολάρια
+            // eu to dollar conversion happens here
+            
             decimal converted = inputEuros * RATE;
 
-            // Συνολικά cents (στρογγυλοποίηση για αποφυγή σφαλμάτων)
+            //rounding off the cents, to avoid errors
+            
             int totalCents = (int)Math.Round(converted * 100, MidpointRounding.AwayFromZero); // Default MidpointRounding.ToEven
 
             int dollars = totalCents / 100;
